@@ -4,15 +4,15 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 
-import AbreivBot.Functions as fnc
-from AbreivBot.Models.BaseModels import BaseModel
+import app.AbreivBot.Functions as fnc
+from app.AbreivBot.Models.BaseModels import BaseModel
 
 import string
 
 possible_chars = string.ascii_letters + string.digits + ' .@'
 
 model = BaseModel(dictionary=possible_chars)
-model.load_weights('AbreivBot/Models/TrainedModels/BaseModel')
+model.load_weights('app/AbreivBot/Models/TrainedModels/BaseModel')
 
 
 from flask import Flask, request
@@ -27,9 +27,11 @@ def predict():
     
     output = []
 
-    with tf.device('/device:CPU:0'):
-        output = model.predict(data)
+    # with tf.device('/device:CPU:0'):
+    output = model.predict(data)
     
     output = fnc.unvectorize_list(output)
     
     return ','.join(output)
+
+# app.run()
