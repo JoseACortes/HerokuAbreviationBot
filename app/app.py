@@ -19,7 +19,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/predict')
+@app.route('/')
 def predict():
     data = request.args.get('data')
     data = data.split(',')[:-1]
