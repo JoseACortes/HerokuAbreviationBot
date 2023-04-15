@@ -33,5 +33,3 @@ def predict():
     output = fnc.unvectorize_list(output)
     
     return ','.join(output)
-
-app.run(port=5000)
