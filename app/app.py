@@ -7,7 +7,13 @@ import tensorflow as tf
 import AbreivBot.Functions as fnc
 from AbreivBot.Models.BaseModels import BaseModel
 
-model = BaseModel(fnc.possible_chars)
+import string
+
+possible_chars = string.ascii_letters + string.digits + ' .@'
+
+model = BaseModel(dictionary=possible_chars)
+model.load_weights('AbreivBot/Models/TrainedModels/BaseModel')
+
 
 from flask import Flask, request
 

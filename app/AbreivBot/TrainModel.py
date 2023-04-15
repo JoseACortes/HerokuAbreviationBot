@@ -29,7 +29,7 @@ def train(model, train_dataframe, possible_chars = possible_chars, verbose=0):
         train_y = np.array([fnc.one_hot_encode_string(x, possible_chars) for x in train_y])
         train_y = np.float64(train_y)
         
-        with tf.device('/device:CPU:0'):
+        with tf.device('/device:GPU:0'):
 
             if len(train_X) == 1:
             
