@@ -30,10 +30,10 @@ def predict():
     
     return jsonify(output.tolist())
 
-import os
+# import os
 
 if __name__ == '__main__':
     print('test6')
     # app.run()
-    app.run(port=int(os.environ.get('PORT', 5000)))
+    app.run(port=5000)
     print('test7')
